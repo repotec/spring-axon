@@ -1,0 +1,28 @@
+server:
+  port: 7000
+# The easiest way to enable Gateway routing is to enable "Discovery Locator" feature.
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:9000/eureka
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    show-sql: true
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  mvc:
+    path-match:
+      matching-strategy: ant-path-matcher
+
+server:
+  servlet:
+    context-path: /ecommerce
+  port: 9090
+
+axon:
+  axonserver:
+    servers: localhost:8124
+    keep-alive-time: 0
+    keep-alive-timeout: 604800000
+    min-keep-alive-time: 604800000
